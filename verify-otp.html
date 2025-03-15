@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>OTP Verification</title>
+</head>
+<body>
+    <main>
+    
+        <div id="to-do-logo"></div>
+
+        <div id="form-div">
+            <form method="POST" id="otp-verification-form">
+                <p><strong>OTP Verification</strong></p>
+                <p>A 6-digit verification code has been sent to your email.<br>Enter it below.</p>
+                <label>Code:
+                    <input type="text" name="otp-code" maxlength="6" required>
+                </label>
+                <input type="submit" value="Verify">
+                <p id="loading-text" style="display:none;">Loading...</p>
+                <p>Didn't receive a code? <a href="#">Check spam or try again.</a></p>
+            </form>
+
+        </div>
+        
+
+        
+
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get("username");
+            const vtype = urlParams.get("vtype");
+        
+            if (username) {
+                document.getElementById("otp-verification-form").action = `./signup-verification/otp-verify.php?username=${username}&vtype=${vtype}`;
+            } else {
+                alert("Username missing. Please restart the process.");
+                window.location.href = "./signup.html"; // Redirect if username is missing
+            }
+    });
+
+    function Loading_Animation(){
+        document.getElementById("loading-text").style.display = 'block';
+    }
+        </script>
+        
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>TO-DO-LIST USER-LOGGED-IN</title>
+</head>
+<body>
+
+    <main>
+
+        <div id="log-back-in">
+            <a href="logout.php">Login</a>
+        </div>
+
+        <div id="log-out">
+            <a href="logout.php">Logout</a>
+        </div>
+
+        <div id="plate">
+            <div id="top-head">
+                <p id="to-do-header">Todo</p>
+                <p id="current-date"></p>
+                <button type="button" id="create-reminder-btn">Create Reminder</button>
+            </div>
+
+            <div id="current-tasks">
+
+
+            </div>
+
+                    <p id="expired-header">Expired</p>
+            <div id="expired-tasks">
+                
+                
+
+            </div>
+
+                    <p id="completed-header">Completed</p>
+            <div id="completed-tasks">
+                
+                
+
+            </div>
+
+
+        </div>
+        <p id="hint">Tap the to-do circles to mark tasks as "completed".</p>
+
+
+        <div id="mark-as-completed">
+            <div id="completed_container">
+                <h2>Mark this task as completed. <br>Task: <span id="task-to-mark"></span></h2>
+                
+                <div id="mark-or-cancel">
+                     <button type="button" id="hide-mark">&#x274C;</button>
+                    <button type="button" id="complete-mark">&#10004;</button>   
+                </div>
+                
+            </div>
+            
+        </div>
+
+
+        <div id="create-reminder-form">
+            <form action="" method=POST id="form">
+            <button type="button" id="hide-form">&#x274C;</button>
+
+                <label for="create-task-title">Title:
+                    <input type="text" title="Task Title" for="create-task-title" name="task_title" required>
+                </label>
+
+                <label for="create-task-expiry">Finish By:
+                    <input type="date" title="Expiry Date" id="create-task-expiry" name="task_expiry" required>
+                </label>
+                <div id="select-tags">
+                    <label><input type="checkbox" name="tags[]" value="Work"> Work</label>
+                    <label><input type="checkbox" name="tags[]" value="Personal"> Personal</label>
+                    <label><input type="checkbox" name="tags[]" value="Urgent"> Urgent</label>
+                    <label><input type="checkbox" name="tags[]" value="Shopping"> Shopping</label>
+                    <label><input type="checkbox" name="tags[]" value="Other"> Other</label>
+                </div>
+                
+                <input type="submit" id="submit-new-task">
+                
+            </form>
+        </div>
+
+    </main>
+    
+
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
