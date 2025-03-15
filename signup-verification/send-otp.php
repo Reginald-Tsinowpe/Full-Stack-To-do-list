@@ -11,7 +11,7 @@ require 'PHPMailer/src/SMTP.php';
 
 // Function to send OTP email
 function sendOTPEmail($recipient_email, $otp_code) {
-    $mail = new PHPMailer(true); // Enable exceptions
+    $mail = new PHPMailer(true); 
 
     try {
         // SMTP Configuration
@@ -20,23 +20,23 @@ function sendOTPEmail($recipient_email, $otp_code) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com'; // Change if using a different provider
         $mail->SMTPAuth = true;
-        $mail->Username = 'tsinowpe.business@gmail.com'; // Replace with your email
-        $mail->Password = 'uzld pxsp xzpr fzpp'; // Replace with your app password
-        //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Username = ''; // Replace with your email
+        $mail->Password = ''; // Replace with your gmail account app password -- remember to enable 2FA
+        //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;        // I disabled this protocol because of restictions that prevented the use of the associated port
         //$mail->Port = 587;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //if you decide to use the protocol above, comment  this line, and the one below it
         $mail->Port = 465;
 
 
         // Email Headers
-        $mail->setFrom('tsinowpe.business@gmail.com', 'To Do List');
+        $mail->setFrom('', 'To Do List');//email account here too
         $mail->addAddress($recipient_email);
         $mail->Subject = 'Your OTP Verification Code';
 
         // Email Body
         $mail->Body = "Your OTP verification code is: <b>$otp_code</b>. It expires in 10 minutes.";
 
-        $mail->isHTML(true); // Send as HTML email
+        $mail->isHTML(true); 
 
         // Send the email
         if ($mail->send()) {
