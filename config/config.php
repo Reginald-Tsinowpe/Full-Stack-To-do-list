@@ -1,12 +1,5 @@
 <?php
 
-define("DB_HOSTNAME", "sql10.freesqldatabase.com");
-define("DB_USERNAME", "sql10767782");
-define("DB_PASSWORD", "xeFYP2Alir");
-define("DB_NAME", "sql10767782");
-define("DB_PORT", "3306");
-
-
 define("DB_HOSTNAME", getenv('DB_HOST'));
 define("DB_USERNAME", getenv('DB_USER'));
 define("DB_PASSWORD", getenv('DB_PASS'));
