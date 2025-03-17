@@ -1,6 +1,8 @@
 <?php
-header('Content-Type: application/json');
+
 require_once "../config/config.php"; 
+
+header('Content-Type: application/json');
 
     if (isset($_GET['username'])) {
         $username = htmlspecialchars($_GET['username']); // Prevent XSS attacks
