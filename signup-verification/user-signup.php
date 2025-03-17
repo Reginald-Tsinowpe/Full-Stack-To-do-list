@@ -32,7 +32,7 @@ $concurrent_user = $check_user_stmt->get_result();
 
 if ($concurrent_user->num_rows > 0) {
     $delete_stmt = $conn->prepare("DELETE FROM `temporary_user_signup` WHERE `uname` = ?");
-    $delete_stmt->bind_param('s', $username);
+    $delete_stmt->bind_param('s', $uname);
     $delete_stmt->execute();
     $delete_stmt->close();
 }
