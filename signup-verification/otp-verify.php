@@ -1,8 +1,9 @@
 <?php
+session_start();
+header('Content-Type: application/json');
 
 require_once "../config/config.php"; 
 
-header('Content-Type: application/json');
 
     if (isset($_GET['username'])) {
         $username = htmlspecialchars($_GET['username']); // Prevent XSS attacks
@@ -80,7 +81,7 @@ if ($result->num_rows > 0) {
 
 
                     
-                    session_start();
+                    
                     $_SESSION['username'] = $username;
                     $_SESSION['logged_in'] = true;
 
